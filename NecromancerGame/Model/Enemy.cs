@@ -69,7 +69,8 @@ namespace NecromancerGame.Model
 
 
         private bool IsCanMove(Point newPosition) =>
-            _location.Map[newPosition.X, newPosition.Y] == MapElement.Empty && !_location.Doors.Contains(newPosition);
+            _location.Map[newPosition.X, newPosition.Y] == MapElement.Empty 
+            && !_location.Doors.Contains(newPosition);
 
         private List<Direction> FindShortestPathToTarget()
         {
