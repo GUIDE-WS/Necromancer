@@ -29,6 +29,7 @@ namespace NecromancerGame.Model
         {
             yield return new Location(Resources.Training);
             yield return new Location(Resources.ElfsForest);
+            yield return new Location(Resources.SeveralRooms);
         }
 
         private void RouseGhost()
