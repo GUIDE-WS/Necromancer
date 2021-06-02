@@ -4,9 +4,9 @@ namespace NecromancerGame.Model
 {
     public interface IGameCharacter
     {
-        public Point CurrentPosition { get; }
-        public Direction CurrentDirection { get; }
-        public IWeapon CurrentWeapon { get; }
+        Point CurrentPosition { get; }
+        Direction CurrentDirection { get; }
+        IWeapon CurrentWeapon { get; }
         void MoveToDirection(Direction direction);
     }
 

@@ -24,6 +24,26 @@ namespace NecromancerGame.Model
             if (CurrentLocation.CurrentNecromancer.Health <= 0)
                 RestartGame();
         }
+        
+        public void SetPlayer()
+        {
+            if (CurrentLocation.CurrentGhost == null)
+                RouseGhost();
+            if (CurrentPlayer == CurrentLocation.CurrentNecromancer && CurrentLocation.CurrentGhost != null)
+                CurrentPlayer = CurrentLocation.CurrentGhost;
+            else
+                CurrentPlayer = CurrentLocation.CurrentNecromancer;
+        }
+
+        public void ChangeLocation()
+        {
+            var nextLocations = GetNextLocations().ToArray();
+            if (!nextLocations.Any())
+                return;
+            _locations = nextLocations;
+            CurrentLocation = _locations.First();
+            CurrentPlayer = CurrentLocation.CurrentNecromancer;
+        }
 
         private static IEnumerable<Location> LoadLocations()
         {
@@ -50,26 +70,6 @@ namespace NecromancerGame.Model
             }
 
             return null;
-        }
-
-        public void SetPlayer()
-        {
-            if (CurrentLocation.CurrentGhost == null)
-                RouseGhost();
-            if (CurrentPlayer == CurrentLocation.CurrentNecromancer && CurrentLocation.CurrentGhost != null)
-                CurrentPlayer = CurrentLocation.CurrentGhost;
-            else
-                CurrentPlayer = CurrentLocation.CurrentNecromancer;
-        }
-
-        public void ChangeLocation()
-        {
-            var nextLocations = GetNextLocations().ToArray();
-            if (!nextLocations.Any())
-                return;
-            _locations = nextLocations;
-            CurrentLocation = _locations.First();
-            CurrentPlayer = CurrentLocation.CurrentNecromancer;
         }
 
         private void RestartGame()

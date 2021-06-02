@@ -7,12 +7,12 @@ namespace NecromancerGame.Model
     public class Enemy : IGameCharacter
     {
         public int Health { get; private set; }
-        private int MaxHealth { get; }
-        private readonly Location _location;
+        public int MaxHealth { get; }
         public Point CurrentPosition { get; private set; }
         public Direction CurrentDirection { get; private set; }
         public Bitmap CurrentSprite { get; private set; }
         public IWeapon CurrentWeapon { get; }
+        private readonly Location _location;
         private Point _previousTarget;
         private Point _currentTarget;
         private List<Direction> _pathToPlayer;

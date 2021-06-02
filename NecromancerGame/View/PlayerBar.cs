@@ -6,11 +6,11 @@ namespace NecromancerGame.View
 {
     public class PlayerBar : UserControl
     {
+        public Color BaseColor { get; init; }
+        public Color ProgressColor { get; init; }
         private int Value { get; set; }
         private int MaxValue { get; }
         private int MinValue { get; }
-        public Color BaseColor { get; init; }
-        public Color ProgressColor { get; init; }
 
         public PlayerBar(int value, int maxValue, int minValue)
         {

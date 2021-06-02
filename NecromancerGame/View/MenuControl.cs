@@ -37,6 +37,20 @@ namespace NecromancerGame.View
             ResumeLayout(false);
         }
 
+        public static Button MenuBatton(string text, int textSize, Action action)
+        {
+            var button = new Button
+            {
+                Text = text,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("AlundraText", textSize),
+                BackColor = Color.DarkGray,
+                Dock = DockStyle.Fill
+            };
+            button.Click += (_, _) => action();
+            return button;
+        }
+        
         private TableLayoutPanel InitializeMenu()
         {
             var tableSize = new Size(ClientSize.Width / 4, ClientSize.Height / 3);
@@ -52,20 +66,6 @@ namespace NecromancerGame.View
                 table.RowStyles.Add(new RowStyle(SizeType.Percent, 20));
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             return table;
-        }
-
-        public static Button MenuBatton(string text, int textSize, Action action)
-        {
-            var button = new Button
-            {
-                Text = text,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("AlundraText", textSize),
-                BackColor = Color.DarkGray,
-                Dock = DockStyle.Fill
-            };
-            button.Click += (_, _) => action();
-            return button;
         }
     }
 }

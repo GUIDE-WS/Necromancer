@@ -51,37 +51,7 @@ namespace NecromancerGame.View
             
             ShowControlReference();
         }
-
-        private void Pause()
-        {
-            Cursor.Show();
-            _pauseMenu.Enabled = true;
-            _pauseMenu.Show();
-            _pauseMenu.Focus();
-        }
-
-        private void Resume()
-        {
-            Cursor.Hide();
-            _pauseMenu.Enabled = false;
-            _pauseMenu.Hide();
-            Focus();
-        }
-
-        private void ShowControlReference()
-        {
-            _controlReference.Enabled = true;
-            _controlReference.Show();
-            _controlReference.Focus();
-        }
-
-        private void HideControlReference()
-        {
-            _controlReference.Enabled = false;
-            _controlReference.Hide(); 
-            Focus();
-        }
-
+        
         protected override void OnKeyDown(KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -127,6 +97,36 @@ namespace NecromancerGame.View
             }
 
             UpdateGame();
+        }
+
+        private void Pause()
+        {
+            Cursor.Show();
+            _pauseMenu.Enabled = true;
+            _pauseMenu.Show();
+            _pauseMenu.Focus();
+        }
+
+        private void Resume()
+        {
+            Cursor.Hide();
+            _pauseMenu.Enabled = false;
+            _pauseMenu.Hide();
+            Focus();
+        }
+
+        private void ShowControlReference()
+        {
+            _controlReference.Enabled = true;
+            _controlReference.Show();
+            _controlReference.Focus();
+        }
+
+        private void HideControlReference()
+        {
+            _controlReference.Enabled = false;
+            _controlReference.Hide(); 
+            Focus();
         }
 
         private void UpdateGame()

@@ -72,14 +72,14 @@ namespace NecromancerGame.View
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80));
 
             for (var column = 0; column < columnCount; column++)
-            for (var row = 0; row < rowCount; row++)
-                table.Controls.Add(new Label
-                {
-                    Text = Description[column, row],
-                    BackColor = Color.Transparent,
-                    Font = new Font("AlundraText", (float) table.Size.Height / 20),
-                    Dock = DockStyle.Fill
-                }, column, row);
+                for (var row = 0; row < rowCount; row++)
+                    table.Controls.Add(new Label
+                    {
+                        Text = Description[column, row],
+                        BackColor = Color.Transparent,
+                        Font = new Font("AlundraText", (float) table.Size.Height / 20),
+                        Dock = DockStyle.Fill
+                    }, column, row);
 
             return table;
         }

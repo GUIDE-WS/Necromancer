@@ -45,6 +45,12 @@ namespace NecromancerGame.Model
             }
 
         }
+        
+        public void OpenDoor(Point doorPosition)
+        {
+            if (Doors.Contains(doorPosition))
+                Doors.Remove(doorPosition);
+        }
 
         private void FromText(string text) =>
             FromLines(text.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries));
@@ -97,12 +103,6 @@ namespace NecromancerGame.Model
             Doors = doors;
             Exit = exit;
             Enemies = enemies.Select(p => new Enemy(p.X, p.Y, this)).ToList();
-        }
-
-        public void OpenDoor(Point doorPosition)
-        {
-            if (Doors.Contains(doorPosition))
-                Doors.Remove(doorPosition);
         }
     }
 }

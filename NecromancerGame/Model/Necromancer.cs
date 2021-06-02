@@ -6,10 +6,10 @@ namespace NecromancerGame.Model
     {
         public int Health { get; private set; }
         public int MaxHealth { get; }
-        private readonly Location _location;
         public Point CurrentPosition { get; private set; }
         public Direction CurrentDirection { get; private set; }
         public IWeapon CurrentWeapon { get; }
+        private readonly Location _location;
 
         public Necromancer(int x, int y, Location location)
         {
@@ -33,6 +33,11 @@ namespace NecromancerGame.Model
                 CurrentPosition = newPosition;
         }
 
+        public void GetDamage(int damage) => Health -= damage;
+
+        private bool IsCanMove(Point newPosition) =>
+            _location.Map[newPosition.X, newPosition.Y] == MapElement.Empty && !_location.Doors.Contains(newPosition);
+        
         private void SetSprite()
         {
             CurrentSprite = CurrentDirection switch
@@ -44,10 +49,5 @@ namespace NecromancerGame.Model
                 _ => CurrentSprite
             };
         }
-
-        public void GetDamage(int damage) => Health -= damage;
-
-        private bool IsCanMove(Point newPosition) =>
-            _location.Map[newPosition.X, newPosition.Y] == MapElement.Empty && !_location.Doors.Contains(newPosition);
     }
 }
