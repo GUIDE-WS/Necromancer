@@ -6,8 +6,10 @@ namespace NecromancerGame.View
 {
     public sealed class MenuControl : UserControl
     {
+        private static GameForm _gameForm;
         public MenuControl(GameForm gameForm)
         {
+            _gameForm = gameForm;
             SetStyle(
                 ControlStyles.AllPaintingInWmPaint
                 | ControlStyles.OptimizedDoubleBuffer
@@ -15,8 +17,8 @@ namespace NecromancerGame.View
                 | ControlStyles.SupportsTransparentBackColor
                 | ControlStyles.UserPaint, true);
 
-            ClientSize = gameForm.Size;
-            BackgroundImage = Resources.MenuBackground;
+            ClientSize = _gameForm.Size;
+            BackgroundImage = GameResources.MenuBackground;
             DoubleBuffered = true;
             BackgroundImageLayout = ImageLayout.Stretch;
             SuspendLayout();
@@ -25,7 +27,7 @@ namespace NecromancerGame.View
             {
                 Text = @"Некромант",
                 TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("AlundraText", (float) menu.Size.Height / 9),
+                Font = new Font(gameForm.Fonts.Families[0], (float) menu.Size.Height / 9),
                 Dock = DockStyle.Fill
             }, 0, 0);
             menu.Controls.Add(
@@ -43,7 +45,7 @@ namespace NecromancerGame.View
             {
                 Text = text,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("AlundraText", textSize),
+                Font = new Font(_gameForm.Fonts.Families[0], textSize),
                 BackColor = Color.DarkGray,
                 Dock = DockStyle.Fill
             };

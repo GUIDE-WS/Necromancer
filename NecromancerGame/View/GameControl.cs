@@ -27,7 +27,7 @@ namespace NecromancerGame.View
 
             ClientSize = form.Size;
             DoubleBuffered = true;
-            BackgroundImage = Resources.GameBackground;
+            BackgroundImage = GameResources.GameBackground;
             BackgroundImageLayout = ImageLayout.Stretch;
 
             _pauseMenu = InitializePause();

@@ -7,21 +7,30 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="Resources.Designer.cs">
+      <Compile Update="GameResources.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.resx</DependentUpon>
+        <DependentUpon>GameResources.resx</DependentUpon>
       </Compile>
       <Compile Update="View\ControlReference.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="View\MenuControl.cs">
         <SubType>UserControl</SubType>
       </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources.resx">
+      <EmbeddedResource Update="GameResources.resx">
         <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        <LastGenOutput>GameResources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="bin\Debug\net5.0-windows\19151.ttf" />
+      <None Include="bin\Debug\net5.0-windows\Fonts\19151.ttf" />
+      <None Include="bin\Release\net5.0-windows\19151.ttf" />
     </ItemGroup>
 
 </Project>

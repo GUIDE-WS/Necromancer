@@ -15,7 +15,7 @@ namespace NecromancerGame.Model
             _location = location;
             CurrentWeapon = new Sword(0);
             CurrentPosition = new Point(x, y);
-            CurrentSprite = Resources.Ghost;
+            CurrentSprite = GameResources.Ghost;
         }
 
         public Bitmap CurrentSprite { get; }

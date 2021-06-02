@@ -1,13 +1,15 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing.Text;
+using System.Windows.Forms;
 using NecromancerGame.Model;
 
 namespace NecromancerGame.View
 {
     public partial class GameForm : Form
     {
+        public PrivateFontCollection Fonts;
+        public readonly Game CurrentGame;
         private readonly GameControl _gameControl;
         private readonly MenuControl _menu;
-        public readonly Game CurrentGame;
         public GameForm(Game currentGame)
         {
             SetStyle(
@@ -16,6 +18,7 @@ namespace NecromancerGame.View
                 | ControlStyles.ResizeRedraw
                 | ControlStyles.SupportsTransparentBackColor
                 | ControlStyles.UserPaint, true);
+            LoadFont();
             
             CurrentGame = currentGame;
             Name = "Necromancer";
@@ -57,6 +60,12 @@ namespace NecromancerGame.View
             _menu.Enabled = true;
             _menu.Show();
             _menu.Focus();
+        }
+
+        private void LoadFont()
+        {
+            Fonts = new PrivateFontCollection();
+            Fonts.AddFontFile(@"19151.ttf");
         }
     }
 }

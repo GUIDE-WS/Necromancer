@@ -77,7 +77,7 @@ namespace NecromancerGame.View
                     {
                         Text = Description[column, row],
                         BackColor = Color.Transparent,
-                        Font = new Font("AlundraText", (float) table.Size.Height / 20),
+                        Font = new Font(_form.Fonts.Families[0], (float) table.Size.Height / 20),
                         Dock = DockStyle.Fill
                     }, column, row);
 

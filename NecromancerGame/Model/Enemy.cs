@@ -24,7 +24,7 @@ namespace NecromancerGame.Model
             Health = MaxHealth;
             CurrentWeapon = new Sword(25);
             CurrentPosition = new Point(x, y);
-            CurrentSprite = Resources.ElfRiht;
+            CurrentSprite = GameResources.ElfRiht;
             _currentTarget = _location.CurrentNecromancer.CurrentPosition;
             _pathToPlayer = FindShortestPathToTarget();
             Update();
@@ -45,10 +45,10 @@ namespace NecromancerGame.Model
         {
             CurrentSprite = CurrentDirection switch
             {
-                Direction.Up => Resources.ElfUp,
-                Direction.Down => Resources.ElfDown,
-                Direction.Left => Resources.ElfLeft,
-                Direction.Right => Resources.ElfRiht,
+                Direction.Up => GameResources.ElfUp,
+                Direction.Down => GameResources.ElfDown,
+                Direction.Left => GameResources.ElfLeft,
+                Direction.Right => GameResources.ElfRiht,
                 _ => CurrentSprite
             };
         }

@@ -84,7 +84,7 @@ namespace NecromancerGame.View
             if (!_currentLocation.Doors.Any())
                 return;
             foreach (var door in _currentLocation.Doors)
-                graphics.DrawImage(Resources.Exit, new Rectangle(door.X, door.Y, 1, 1));
+                graphics.DrawImage(GameResources.Exit, new Rectangle(door.X, door.Y, 1, 1));
         }
 
         private void DrawLevel(Graphics graphics) => 
@@ -95,19 +95,19 @@ namespace NecromancerGame.View
         {
             _levelSize = new Size(_currentLocation.Map.GetLength(0), _currentLocation.Map.GetLength(1));
             Size = new SizeF(_currentLocation.Map.GetLength(0), _currentLocation.Map.GetLength(1));
-            _cellWidth = Resources.Empty.Width;
-            _cellHeight = Resources.Empty.Height;
+            _cellWidth = GameResources.Empty.Width;
+            _cellHeight = GameResources.Empty.Height;
             _mapImage = new Bitmap(_levelSize.Width * _cellWidth, _levelSize.Height * _cellHeight);
             using var graphics = Graphics.FromImage(_mapImage);
             for (var x = 0; x < Size.Width; x++)
             {
                 for (var y = 0; y < Size.Height; y++)
                 {
-                    var image = Resources.Empty;
+                    var image = GameResources.Empty;
                     if (_currentLocation.Map[x, y] == MapElement.Wall)
-                        image = Resources.Wall;
+                        image = GameResources.Wall;
                     if (_currentLocation.Map[x, y] == MapElement.Bone)
-                        image = Resources.Bone;
+                        image = GameResources.Bone;
                     graphics.DrawImage(image, new Rectangle(x * _cellWidth, y * _cellHeight, _cellWidth, _cellHeight));
                 }
             }

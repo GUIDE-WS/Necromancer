@@ -47,9 +47,9 @@ namespace NecromancerGame.Model
 
         private static IEnumerable<Location> LoadLocations()
         {
-            yield return new Location(Resources.Training);
-            yield return new Location(Resources.ElfsForest);
-            yield return new Location(Resources.SeveralRooms);
+            yield return new Location(GameResources.Training);
+            yield return new Location(GameResources.ElfsForest);
+            yield return new Location(GameResources.SeveralRooms);
         }
 
         private void RouseGhost()

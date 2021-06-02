@@ -18,7 +18,7 @@ namespace NecromancerGame.Model
             MaxHealth = 150;
             Health = MaxHealth; ;
             CurrentPosition = new Point(x, y);
-            CurrentSprite = Resources.NecromancerDown;
+            CurrentSprite = GameResources.NecromancerDown;
         }
 
         public Bitmap CurrentSprite { get; private set; }
@@ -42,10 +42,10 @@ namespace NecromancerGame.Model
         {
             CurrentSprite = CurrentDirection switch
             {
-                Direction.Up => Resources.NecromancerUp,
-                Direction.Down => Resources.NecromancerDown,
-                Direction.Left => Resources.NecromancerLeft,
-                Direction.Right => Resources.NecromancerRight,
+                Direction.Up => GameResources.NecromancerUp,
+                Direction.Down => GameResources.NecromancerDown,
+                Direction.Left => GameResources.NecromancerLeft,
+                Direction.Right => GameResources.NecromancerRight,
                 _ => CurrentSprite
             };
         }
