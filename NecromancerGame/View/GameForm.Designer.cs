@@ -2,7 +2,7 @@
 
 namespace NecromancerGame.View
 {
-    partial class MyForm
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@ namespace NecromancerGame.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 639);
-            this.Name = "MyForm";
+            this.Name = "GameForm";
             this.Text = "MyForm";
             this.ResumeLayout(false);
         }

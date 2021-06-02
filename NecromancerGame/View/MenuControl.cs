@@ -6,7 +6,7 @@ namespace NecromancerGame.View
 {
     public sealed class MenuControl : UserControl
     {
-        public MenuControl(MyForm gameForm)
+        public MenuControl(GameForm gameForm)
         {
             ClientSize = gameForm.Size;
             BackgroundImage = Resources.MenuBackground;

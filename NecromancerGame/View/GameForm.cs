@@ -3,12 +3,12 @@ using NecromancerGame.Model;
 
 namespace NecromancerGame.View
 {
-    public partial class MyForm : Form
+    public partial class GameForm : Form
     {
         private readonly GameControl _gameControl;
         private readonly MenuControl _menu;
         public readonly Game CurrentGame;
-        public MyForm(Game currentGame)
+        public GameForm(Game currentGame)
         {
             SetStyle(
                 ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw |

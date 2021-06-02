@@ -19,7 +19,7 @@ namespace NecromancerGame.View
         private int _cellWidth;
         private int _cellHeight;
 
-        public ScenePainter(MyForm form)
+        public ScenePainter(GameForm form)
         {
             
             _game = form.CurrentGame;

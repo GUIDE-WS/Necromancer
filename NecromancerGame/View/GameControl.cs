@@ -7,13 +7,18 @@ namespace NecromancerGame.View
 {
     public sealed partial class GameControl : UserControl
     {
-        private readonly MyForm _form;
+        private readonly GameForm _form;
         private readonly Game _currentGame;
         private readonly Control _pauseMenu;
         private PlayerBar _playerBar;
+        private readonly Control _controlReference;
 
-        public GameControl(MyForm form, Game game)
+        public GameControl(GameForm form, Game game)
         {
+            SetStyle(
+                ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw |
+                ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+            
             _currentGame = game;
             _form = form;
 
@@ -25,9 +30,13 @@ namespace NecromancerGame.View
             _pauseMenu = InitializePause();
             _pauseMenu.Hide();
             Controls.Add(_pauseMenu);
+            
+            _controlReference = new ControlReference(_form, HideControlReference);
+            _controlReference.Hide();
+            Controls.Add(_controlReference);
 
             Controls.Add(InitialiseMap());
-            InitializeComponent();
+
         }
 
         protected override void OnLoad(EventArgs e)
@@ -36,6 +45,8 @@ namespace NecromancerGame.View
             _playerBar = InitialisePlayerBar();
             _playerBar.Enabled = false;
             Controls.Add(_playerBar);
+            
+            ShowControlReference();
         }
 
         private void Pause()
@@ -54,10 +65,37 @@ namespace NecromancerGame.View
             Focus();
         }
 
+        private void ShowControlReference()
+        {
+            _controlReference.Enabled = true;
+            _controlReference.Show();
+            _controlReference.Focus();
+        }
+
+        private void HideControlReference()
+        {
+            _controlReference.Enabled = false;
+            _controlReference.Hide(); 
+            Focus();
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+                    ShowControlReference();
+                    break;
+            }
+        }
+
         protected override void OnKeyUp(KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
+                case Keys.F1:
+                    HideControlReference();
+                    return;
                 case Keys.Escape:
                     Pause();
                     return;

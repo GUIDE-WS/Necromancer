@@ -16,7 +16,7 @@ namespace NecromancerGame
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MyForm(new Game()));
+            Application.Run(new GameForm(new Game()));
         }
     }
 }
