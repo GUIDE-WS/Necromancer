@@ -11,10 +11,8 @@ namespace NecromancerGame.View
         private float _zoomScale;
 
         public ScaledViewPanel(ScenePainter painter)
-            : this()
-        {
+            : this() =>
             _painter = painter;
-        }
 
         private ScaledViewPanel()
         {
@@ -22,10 +20,7 @@ namespace NecromancerGame.View
             _zoomScale = 1f;
         }
 
-        private PointF CenterLogicalPos
-        {
-            get => _centerLogicalPos;
-        }
+        private PointF CenterLogicalPos => _centerLogicalPos;
 
         private float ZoomScale
         {
@@ -51,10 +46,16 @@ namespace NecromancerGame.View
         {
             base.OnMouseWheel(e);
             const float zoomChangeStep = 1.1f;
-            if (e.Delta > 0)
-                ZoomScale *= zoomChangeStep;
-            if (e.Delta < 0)
-                ZoomScale /= zoomChangeStep;
+            switch (e.Delta)
+            {
+                case > 0:
+                    ZoomScale *= zoomChangeStep;
+                    break;
+                case < 0:
+                    ZoomScale /= zoomChangeStep;
+                    break;
+            }
+
             Invalidate();
         }
 

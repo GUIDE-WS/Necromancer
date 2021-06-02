@@ -51,6 +51,7 @@ namespace NecromancerGame.View
             g.FillRectangle(new SolidBrush(ProgressColor), rect);
         }
 
-        private void DrawBase(Graphics g, Rectangle rect) => g.FillRectangle(new SolidBrush(BaseColor), rect);
+        private void DrawBase(Graphics g, Rectangle rect) 
+            => g.FillRectangle(new SolidBrush(BaseColor), rect);
     }
 }

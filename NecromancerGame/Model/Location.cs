@@ -9,19 +9,14 @@ namespace NecromancerGame.Model
     {
         public Necromancer CurrentNecromancer { get; private set; }
         public Ghost CurrentGhost { get; private set; }
-        private Point _entry;
         public Point Exit { get; private set; }
         public MapElement[,] Map { get; private set; }
 
         public List<Point> Doors { get; private set; }
 
         public List<Enemy> Enemies { get; private set; }
-        public readonly Dialog[] Dialogs;
 
         public Location(string textMap) => FromText(textMap);
-
-        public void SetMapElement(MapElement setElement, Point position) =>
-            Map[position.X, position.Y] = setElement;
 
         public bool InBounds(Point position)
         {
@@ -100,7 +95,6 @@ namespace NecromancerGame.Model
 
             Map = map;
             Doors = doors;
-            _entry = entry;
             Exit = exit;
             Enemies = enemies.Select(p => new Enemy(p.X, p.Y, this)).ToList();
         }

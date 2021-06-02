@@ -7,15 +7,11 @@ namespace NecromancerGame.Model
         public Point CurrentPosition { get; private set; }
         public Direction CurrentDirection { get; set; }
         public IWeapon CurrentWeapon { get; }
-        public int Health { get; }
-        public int MaxHealth { get; }
         private readonly Location _location;
         
 
         public Ghost(int x, int y, Location location)
         {
-            Health = 10;
-            MaxHealth = 10;
             _location = location;
             CurrentWeapon = new Sword(0);
             CurrentPosition = new Point(x, y);

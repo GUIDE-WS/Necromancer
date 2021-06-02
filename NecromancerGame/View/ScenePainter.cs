@@ -8,7 +8,7 @@ namespace NecromancerGame.View
     public class ScenePainter
     {
         public SizeF Size;
-        private Size LevelSize;
+        private Size _levelSize;
 
         private readonly Game _game;
 
@@ -88,16 +88,16 @@ namespace NecromancerGame.View
         }
 
         private void DrawLevel(Graphics graphics) => 
-            graphics.DrawImage(_mapImage, new Rectangle(0, 0, LevelSize.Width, LevelSize.Height));
+            graphics.DrawImage(_mapImage, new Rectangle(0, 0, _levelSize.Width, _levelSize.Height));
 
 
         private void CreateMap()
         {
-            LevelSize = new Size(_currentLocation.Map.GetLength(0), _currentLocation.Map.GetLength(1));
+            _levelSize = new Size(_currentLocation.Map.GetLength(0), _currentLocation.Map.GetLength(1));
             Size = new SizeF(_currentLocation.Map.GetLength(0), _currentLocation.Map.GetLength(1));
             _cellWidth = Resources.Empty.Width;
             _cellHeight = Resources.Empty.Height;
-            _mapImage = new Bitmap(LevelSize.Width * _cellWidth, LevelSize.Height * _cellHeight);
+            _mapImage = new Bitmap(_levelSize.Width * _cellWidth, _levelSize.Height * _cellHeight);
             using var graphics = Graphics.FromImage(_mapImage);
             for (var x = 0; x < Size.Width; x++)
             {

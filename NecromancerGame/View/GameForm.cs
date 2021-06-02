@@ -11,8 +11,12 @@ namespace NecromancerGame.View
         public GameForm(Game currentGame)
         {
             SetStyle(
-                ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw |
-                ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+                ControlStyles.AllPaintingInWmPaint
+                | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw
+                | ControlStyles.SupportsTransparentBackColor
+                | ControlStyles.UserPaint, true);
+            
             CurrentGame = currentGame;
             Name = "Necromancer";
             ClientSize = Screen.PrimaryScreen.Bounds.Size;

@@ -8,6 +8,7 @@ namespace NecromancerGame.View
     {
         private GameForm _form;
         private Action _hide;
+
         private string[,] Description =
         {
             {
@@ -31,23 +32,22 @@ namespace NecromancerGame.View
         public ControlReference(GameForm form, Action hide)
         {
             SetStyle(
-                ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw |
-                ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+                ControlStyles.AllPaintingInWmPaint
+                | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw
+                | ControlStyles.SupportsTransparentBackColor
+                | ControlStyles.UserPaint, true);
             _form = form;
             _hide = hide;
             ClientSize = _form.Size;
             Controls.Add(InitializeTable());
             BackColor = Color.Transparent;
         }
-        
+
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.F1:
-                    _hide.Invoke();
-                    break;
-            }
+            if (e.KeyCode == Keys.F1)
+                _hide.Invoke();
         }
 
         private TableLayoutPanel InitializeTable()

@@ -7,8 +7,6 @@ namespace NecromancerGame.Model
         public Point CurrentPosition { get; }
         public Direction CurrentDirection { get; }
         public IWeapon CurrentWeapon { get; }
-        int Health { get; }
-        int MaxHealth { get; }
         void MoveToDirection(Direction direction);
     }
 

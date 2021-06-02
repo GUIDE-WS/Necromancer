@@ -8,6 +8,13 @@ namespace NecromancerGame.View
     {
         public MenuControl(GameForm gameForm)
         {
+            SetStyle(
+                ControlStyles.AllPaintingInWmPaint
+                | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw
+                | ControlStyles.SupportsTransparentBackColor
+                | ControlStyles.UserPaint, true);
+
             ClientSize = gameForm.Size;
             BackgroundImage = Resources.MenuBackground;
             DoubleBuffered = true;
@@ -22,8 +29,10 @@ namespace NecromancerGame.View
                 Dock = DockStyle.Fill
             }, 0, 0);
             menu.Controls.Add(
-                MenuBatton(@"Начать игру", menu.Size.Height / 16, () => gameForm.StartGame(this)), 0, 1);
-            menu.Controls.Add(MenuBatton(@"Выход на рабочий стол", menu.Size.Height / 16, Application.Exit), 0, 2);
+                MenuBatton(@"Начать игру", menu.Size.Height / 16, () => gameForm.StartGame(this)),
+                0, 1);
+            menu.Controls.Add(MenuBatton(@"Выход на рабочий стол", menu.Size.Height / 16, Application.Exit),
+                0, 2);
             Controls.Add(menu);
             ResumeLayout(false);
         }
@@ -39,9 +48,8 @@ namespace NecromancerGame.View
                 Location = tableLocation,
                 Size = tableSize,
             };
-            table.RowStyles.Add(new RowStyle(SizeType.Percent, 20));
-            table.RowStyles.Add(new RowStyle(SizeType.Percent, 20));
-            table.RowStyles.Add(new RowStyle(SizeType.Percent, 20));
+            for (var i = 0; i < 3; i++)
+                table.RowStyles.Add(new RowStyle(SizeType.Percent, 20));
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             return table;
         }

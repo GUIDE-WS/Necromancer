@@ -77,7 +77,7 @@ namespace NecromancerGame.Model
         }
 
 
-        private List<Direction> ConvertPathToDirection(IEnumerable<Point> path)
+        private static List<Direction> ConvertPathToDirection(IEnumerable<Point> path)
         {
             if (path == null)
                 return new List<Direction>(0);

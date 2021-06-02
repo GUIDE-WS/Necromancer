@@ -16,8 +16,11 @@ namespace NecromancerGame.View
         public GameControl(GameForm form, Game game)
         {
             SetStyle(
-                ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw |
-                ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+                ControlStyles.AllPaintingInWmPaint
+                | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw
+                | ControlStyles.SupportsTransparentBackColor
+                | ControlStyles.UserPaint, true);
             
             _currentGame = game;
             _form = form;
@@ -93,9 +96,6 @@ namespace NecromancerGame.View
         {
             switch (e.KeyCode)
             {
-                case Keys.F1:
-                    HideControlReference();
-                    return;
                 case Keys.Escape:
                     Pause();
                     return;
