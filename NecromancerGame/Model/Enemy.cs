@@ -7,7 +7,7 @@ namespace NecromancerGame.Model
     public class Enemy : IGameCharacter
     {
         public int Health { get; private set; }
-        public int MaxHealth { get; }
+        private int MaxHealth { get; }
         private readonly Location _location;
         public Point CurrentPosition { get; private set; }
         public Direction CurrentDirection { get; private set; }
@@ -61,9 +61,10 @@ namespace NecromancerGame.Model
             _currentTarget = _location.CurrentNecromancer.CurrentPosition;
             if (_currentTarget != _previousTarget)
                 _pathToPlayer = FindShortestPathToTarget();
-            MoveToDirection(_pathToPlayer.LastOrDefault());
-            if (_pathToPlayer.Any())
-                _pathToPlayer.RemoveAt(_pathToPlayer.Count - 1);
+            if (_pathToPlayer == null || !_pathToPlayer.Any())
+                return;
+            MoveToDirection(_pathToPlayer.Last());
+            _pathToPlayer.RemoveAt(_pathToPlayer.Count - 1);
         }
 
 
@@ -73,7 +74,7 @@ namespace NecromancerGame.Model
         private List<Direction> FindShortestPathToTarget()
         {
             var defaultPath = GeneratePathWithBfs().FirstOrDefault();
-            return defaultPath == null ? new List<Direction> {Direction.None} : ConvertPathToDirection(defaultPath);
+            return defaultPath == null ? null : ConvertPathToDirection(defaultPath);
         }
 
 
