@@ -1,5 +1,5 @@
-# Necromancer_ReReCreated
-Ulearn practice game
+# Necromancer
+Ulearn C# practice game
 
 Сюжет (опционально к прочтению):
 
